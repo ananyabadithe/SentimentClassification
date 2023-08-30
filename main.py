@@ -14,27 +14,25 @@
 #     print_hi('PyCharm')
 #
 # # See PyCharm help at https://www.jetbrains.com/help/pycharm/
-
 import tweepy
 
-from data.raw_data.tweets_collection import user_tweets
+bearer_token = "YOUR_BEARER_TOKEN"
 
-consumer_key = "u8vd4U48YXaxhH0kCuchz4zHf"
-consumer_secret = "6nIwV04jjjC9HuZbb8K68pdgv8gPdTs9mcGeXPjIK769HLFHcs"
-access_token = "1690123664211992577-myuS0VAQYXNNVXjuoh9XW5Botq5YOp"
-access_token_secret = "Ad0vS0IxdKNyv5pPFFaF9c2L2gbLUjrpVlBZj2GstPpY5"
+client = tweepy.Client(bearer_token)
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-
-api = tweepy.API(auth)
+query = "sunny"
+max_results = 2
 
 try:
-    api.verify_credentials()
-    print("Authentication OK")
-except:
-    print("Error during authentication")
+    user_posts = client.search_recent_tweets(query=query, max_results=max_results)
+    for post in user_posts:
+        print(post.text)
+except tweepy.errors.Forbidden as e:
+    print("Error: Forbidden -", e)
+except tweepy.TweepError as e:
+    print("Error:", e)
 
-user_post = api.
-for tweet in user_tweets:
-    print(tweet.text)
+
+
+
+
