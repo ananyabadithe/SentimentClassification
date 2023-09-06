@@ -1,15 +1,16 @@
+#   NO ACCESS
 # import tweepy
 #
-# consumer_key = "u8vd4U48YXaxhH0kCuchz4zHf"
-# consumer_secret = "6nIwV04jjjC9HuZbb8K68pdgv8gPdTs9mcGeXPjIK769HLFHcs"
-# access_token = "1690123664211992577-myuS0VAQYXNNVXjuoh9XW5Botq5YOp"
-# access_token_secret = "Ad0vS0IxdKNyv5pPFFaF9c2L2gbLUjrpVlBZj2GstPpY5"
+# api_key= "FRwUy7aA315YsNrZcLaDBip9e"
+# api_key_secret="Inqd8c2Z3wThOlpwmU7ob4Glv3q2M4QOuMW4JA9YjcQDytV4D8"
+# bearer_token="AAAAAAAAAAAAAAAAAAAAABplpQEAAAAAOcNf46bEsNSfoXmgiCvAq4TThmY%3D66yWolMlWi5mjWNWKRoSb1nlA45fmQFt1lb043kn0s2I1XUZ2e"
 #
-# auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-# auth.set_access_token(access_token, access_token_secret)
+#
+# # Set up authentication using just the app key and secret
+# auth = tweepy.AppAuthHandler(api_key,api_key_secret)
 #
 # api = tweepy.API(auth)
 #
-# user_tweets = api.user_timeline(screen_name='twitterusername', count=10)
-# for tweet in user_tweets:
-#     print(tweet.text)
+# # For example, fetch user details
+# user = api.get_status(id=1)
+# print(user.name)
